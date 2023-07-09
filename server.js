@@ -68,6 +68,7 @@ app.get('/translate/test', apiLimiter, async (req, res) => {
   try {
     const { text } = await transApi.translate(req.query.text, {
       to: req.query.to || 'vi',
+      to: req.query.from || 'en', // có thể để 'auto'
       // fetchOptions: { agent },
     });
     return res.send(text)
